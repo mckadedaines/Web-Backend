@@ -1,0 +1,25 @@
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 8px;
+}
+
+#account {
+    text-align: right;
+    margin-top: 25px;
+}
+
+#navbar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
+    text-align: center;
+    margin: 8px;
+    background-color: #3a3a3a;
+    padding: 10px;
+}
+
+.nav {
+    text-decoration: none;
+    color: white;    
+}
