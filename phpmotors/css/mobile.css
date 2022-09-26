@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+
+body {
+    font-family: Noto Sans Mono, sans-serif;
+}
+
 header {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -26,6 +32,7 @@ header {
 
 #welcome{
     text-align: left;
+    font-size: large;
     margin-left: 8px;
 }
 
@@ -35,7 +42,9 @@ header {
 }
 
 .info_p {
+    font-size: medium;
     margin: 0;
+    color: #4c96d7;
 }
 
 #car {
@@ -56,14 +65,17 @@ header {
 
 #review {
     text-align: left;
+    font-size: large;
     margin-left: 8px;
 }
 
 .bullet {
     margin: 5px;
+    font-size: small;
 }
 
 #upgrades {
+    font-size: larger;
     margin-left: 8px;
 }
 
@@ -72,4 +84,36 @@ header {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
+    row-gap: 5px;
+    column-gap: 20px;
+}
+
+.upgrade_img {
+    text-align: center;
+    background-color: #4c96d7;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+}
+
+.img {
+    margin-top: 10px;
+    height: 80px;
+}
+
+.img_spacing {
+    text-align: center;
+}
+
+hr {
+    height: 3px;
+    background: #8d8d8d;
+}
+
+footer {
+    text-align: center;
 }

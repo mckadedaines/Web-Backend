@@ -51,25 +51,28 @@
         <h2 id="upgrades">Delorean Upgrades</h2>
 
         <div id="upgrade_info">
-        <div>    
+        <div class="img_spacing">    
             <div class="upgrade_img">
-                <img src="images/upgrades/flux-cap.png" alt="flux cap">
+                <img class="img" src="images/upgrades/flux-cap.png" alt="flux cap">
             </div>
             <a class="upgrade_links" href="">Flux Capacitor</a>
         </div>
+        <div class="img_spacing">
             <div class="upgrade_img">
-                <img src="images/upgrades/flame.jpg" alt="flame decals">
+                <img class="img" src="images/upgrades/flame.jpg" alt="flame decals">
             </div>
             <a class="upgrade_links" href="">Flame Decals</a>
-
+        </div>
+        <div class="img_spacing">
             <div class="upgrade_img">
-                <img src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
-            <div class="upgrade_img">
+                <img class="img" src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
+            </div>
             <a class="upgrade_links" href="">Bumper Stickers</a>
-
+        </div>
+        <div class="img_spacing">
             <div class="upgrade_img">
-                <img src="images/upgrades/hub-cap.jpg" alt="hub cap">
-            <div class="upgrade_img">
+                <img class="img" src="images/upgrades/hub-cap.jpg" alt="hub cap">
+            </div>
             <a class="upgrade_links" href="">Hub Caps</a>
         </div>
     </main>
