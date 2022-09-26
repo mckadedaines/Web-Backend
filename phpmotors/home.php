@@ -34,8 +34,8 @@
         <img id="car" src="images/delorean.jpg" alt="delorean">
 
         <div class="container">
-            <button id="button">Own Today</button>
-        </div>
+            <img id="button" src="images/site/own_today.png" alt="Own Today">
+            </div>
 
         <div id="review">
             <h2>DMC Dolrean Reviews</h2>
@@ -51,13 +51,25 @@
         <h2 id="upgrades">Delorean Upgrades</h2>
 
         <div id="upgrade_info">
-            <img class="upgrade_img" src="images/upgrades/flux-cap.png" alt="flux cap">
+        <div>    
+            <div class="upgrade_img">
+                <img src="images/upgrades/flux-cap.png" alt="flux cap">
+            </div>
             <a class="upgrade_links" href="">Flux Capacitor</a>
-            <img class="upgrade_img" src="images/upgrades/flame.jpg" alt="flame decals">
+        </div>
+            <div class="upgrade_img">
+                <img src="images/upgrades/flame.jpg" alt="flame decals">
+            </div>
             <a class="upgrade_links" href="">Flame Decals</a>
-            <img class="upgrade_img" src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
+
+            <div class="upgrade_img">
+                <img src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
+            <div class="upgrade_img">
             <a class="upgrade_links" href="">Bumper Stickers</a>
-            <img class="upgrade_img" src="images/upgrades/hub-cap.jpg" alt="hub cap">
+
+            <div class="upgrade_img">
+                <img src="images/upgrades/hub-cap.jpg" alt="hub cap">
+            <div class="upgrade_img">
             <a class="upgrade_links" href="">Hub Caps</a>
         </div>
     </main>

@@ -43,10 +43,33 @@ header {
 }
 
 .container {
-    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 25px;
 }
 
 #button {
     height: 50px;
     width: 150px;
+}
+
+#review {
+    text-align: left;
+    margin-left: 8px;
+}
+
+.bullet {
+    margin: 5px;
+}
+
+#upgrades {
+    margin-left: 8px;
+}
+
+#upgrade_info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
 }
