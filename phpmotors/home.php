@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +10,19 @@
     <link rel="stylesheet" href="css/large.css">
     <title>Home Page</title>
 </head>
+
 <body>
     <div class="back-img"></div>
 
     <header>
         <?php
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/header.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/header.php';
         ?>
     </header>
 
     <nav>
         <?php
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/nav.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/nav.php';
         ?>
     </nav>
 
@@ -40,7 +42,7 @@
 
         <div class="container">
             <img id="button" src="images/site/own_today.png" alt="Own Today">
-            </div>
+        </div>
 
         <div class="side_by_side">
             <div id="review">
@@ -54,42 +56,46 @@
                 </ul>
             </div>
 
-            <h2 id="upgrades">Delorean Upgrades</h2>
+            
 
-            <div id="upgrade_info">
-                <div class="img_spacing">    
-                    <div class="upgrade_img">
-                        <img class="img" src="images/upgrades/flux-cap.png" alt="flux cap">
+            <div>
+                <h2 id="upgrades">Delorean Upgrades</h2>
+                <div id="upgrade_info">
+                    <div class="img_spacing">
+                        <div class="upgrade_img">
+                            <img class="img" src="images/upgrades/flux-cap.png" alt="flux cap">
+                        </div>
+                        <a class="upgrade_links" href="">Flux Capacitor</a>
                     </div>
-                    <a class="upgrade_links" href="">Flux Capacitor</a>
+                    <div class="img_spacing">
+                        <div class="upgrade_img">
+                            <img class="img" src="images/upgrades/flame.jpg" alt="flame decals">
+                        </div>
+                        <a class="upgrade_links" href="">Flame Decals</a>
+                    </div>
+                    <div class="img_spacing">
+                        <div class="upgrade_img">
+                            <img class="img" src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
+                        </div>
+                        <a class="upgrade_links" href="">Bumper Stickers</a>
+                    </div>
+                    <div class="img_spacing">
+                        <div class="upgrade_img">
+                            <img class="img" src="images/upgrades/hub-cap.jpg" alt="hub cap">
+                        </div>
+                        <a class="upgrade_links" href="">Hub Caps</a>
+                    </div>
                 </div>
-                <div class="img_spacing">
-                    <div class="upgrade_img">
-                        <img class="img" src="images/upgrades/flame.jpg" alt="flame decals">
-                    </div>
-                    <a class="upgrade_links" href="">Flame Decals</a>
-                </div>
-                <div class="img_spacing">
-                    <div class="upgrade_img">
-                        <img class="img" src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
-                    </div>
-                    <a class="upgrade_links" href="">Bumper Stickers</a>
-                </div>
-                <div class="img_spacing">
-                    <div class="upgrade_img">
-                        <img class="img" src="images/upgrades/hub-cap.jpg" alt="hub cap">
-                    </div>
-                    <a class="upgrade_links" href="">Hub Caps</a>
             </div>
-        </div>
     </main>
 
     <footer>
         <hr>
         <?php
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/footer.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/footer.php';
         ?>
     </footer>
-    
+
 </body>
+
 </html>

@@ -47,7 +47,7 @@ header {
     color: #4c96d7;
 }
 
-#car {
+#car > img{
     width: 100%;
 }
 
