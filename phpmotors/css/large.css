@@ -1,0 +1,59 @@
+@media (min-width: 900px) {
+    body {
+        padding-top: 20px;
+        /* margin-bottom: 0; */
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .back-img {
+        background-color: white;
+        background-image: url("../images/site/checkerboard.jpg");
+        background-repeat: repeat;
+        padding-top: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    #car {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #welcome {
+        font-size: 150%;
+    }
+
+    .info_p {
+        font-size: 100%;
+        margin-left: 30px;
+    }
+
+    
+    .side_by_side {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+
+    #upgrades {
+        font-size: 150%;
+    }
+
+    .upgrade_img {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    #review {
+        font-size: 100%;
+    }
+
+    .bullet {
+        font-size: 80%;
+    }
+}
