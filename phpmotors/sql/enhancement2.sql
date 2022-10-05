@@ -8,5 +8,4 @@ UPDATE inventory
     SET invDescription = REPLACE(invDescription, 'small', 'spacious')
     WHERE invModel = 'hummer';
 
-
-
+ 

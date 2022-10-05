@@ -1,4 +1,4 @@
-<?
+<?php
 function phpmotorsConnect(){
     $server = 'localhost';
     $dbname = 'phpmotors';
@@ -16,4 +16,6 @@ function phpmotorsConnect(){
         exit;
     }
 }
+
+phpmotorsConnect();
 ?>

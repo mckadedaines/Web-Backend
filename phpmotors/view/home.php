@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/large.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <link rel="stylesheet" href="../css/large.css">
     <title>Home Page</title>
 </head>
 
@@ -16,13 +16,13 @@
 
     <header>
         <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/header.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php';
         ?>
     </header>
 
     <nav>
         <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/nav.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/nav.php';
         ?>
     </nav>
 
@@ -37,11 +37,11 @@
         </div>
 
         <div id="car">
-            <img src="images/delorean.jpg" alt="delorean">
+            <img src="/phpmotors/images/delorean.jpg" alt="delorean">
         </div>
 
         <div class="container">
-            <img id="button" src="images/site/own_today.png" alt="Own Today">
+            <img id="button" src="/phpmotors/images/site/own_today.png" alt="Own Today">
         </div>
 
         <div class="side_by_side">
@@ -63,25 +63,25 @@
                 <div id="upgrade_info">
                     <div class="img_spacing">
                         <div class="upgrade_img">
-                            <img class="img" src="images/upgrades/flux-cap.png" alt="flux cap">
+                            <img class="img" src="/phpmotors/images/upgrades/flux-cap.png" alt="flux cap">
                         </div>
                         <a class="upgrade_links" href="">Flux Capacitor</a>
                     </div>
                     <div class="img_spacing">
                         <div class="upgrade_img">
-                            <img class="img" src="images/upgrades/flame.jpg" alt="flame decals">
+                            <img class="img" src="/phpmotors/images/upgrades/flame.jpg" alt="flame decals">
                         </div>
                         <a class="upgrade_links" href="">Flame Decals</a>
                     </div>
                     <div class="img_spacing">
                         <div class="upgrade_img">
-                            <img class="img" src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
+                            <img class="img" src="/phpmotors/images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
                         </div>
                         <a class="upgrade_links" href="">Bumper Stickers</a>
                     </div>
                     <div class="img_spacing">
                         <div class="upgrade_img">
-                            <img class="img" src="images/upgrades/hub-cap.jpg" alt="hub cap">
+                            <img class="img" src="/phpmotors/images/upgrades/hub-cap.jpg" alt="hub cap">
                         </div>
                         <a class="upgrade_links" href="">Hub Caps</a>
                     </div>
@@ -93,7 +93,7 @@
     <footer>
         <hr>
         <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/snippets/footer.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php';
         ?>
     </footer>
 
