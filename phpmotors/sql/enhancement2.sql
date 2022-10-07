@@ -8,4 +8,10 @@ UPDATE inventory
     SET invDescription = REPLACE(invDescription, 'small', 'spacious')
     WHERE invModel = 'hummer';
 
- 
+SELECT inventory.invModel, carclassification.classificationName
+FROM inventory
+INNER JOIN carclassification on inventory.classificationId = carclassification.classificationId
+WHERE carclassification.classificationName = 'SUV';
+
+DELETE FROM inventory WHERE inventory.invId = '1';
+
