@@ -1,4 +1,5 @@
 <?php
+// This is the MAIN PHP Motors Model.
     require_once('../library/connections.php');
 
     function getClassifications(){
