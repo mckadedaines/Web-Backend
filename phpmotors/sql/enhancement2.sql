@@ -15,3 +15,5 @@ WHERE carclassification.classificationName = 'SUV';
 
 DELETE FROM inventory WHERE inventory.invId = '1';
 
+UPDATE inventory
+SET invImage = CONCAT('/phpmotors', invImage), invThumbnail = CONCAT('/phpmotors', invThumbnail);
