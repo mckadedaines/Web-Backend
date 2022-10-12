@@ -36,6 +36,17 @@ header {
     padding: 10px;
 }
 
+#navbar {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
+    text-align: left;
+    margin: 3px;
+    background-color: #3a3a3a; 
+    padding: 10px; 
+}
+
 .nav {
     text-decoration: none;
     color: white;
