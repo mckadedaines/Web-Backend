@@ -19,5 +19,5 @@ function phpmotorsConnect(){
   }
 }
 //For Testing Purposes Only
-// phpmotorsConnect();
+phpmotorsConnect();
 ?>

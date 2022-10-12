@@ -19,8 +19,8 @@ if ($action == NULL){
 $action = filter_input(INPUT_GET, 'action');
 }
 switch ($action){
-    case 'template':
-        include 'view/template.php';
+    case 'server error':
+        include 'view/500.php';
 
     break;
         
