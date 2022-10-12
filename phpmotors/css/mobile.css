@@ -132,3 +132,18 @@ hr {
 footer {
     text-align: center;
 }
+
+#form {
+    text-align: center;
+}
+
+#sign_up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 20px;
+}

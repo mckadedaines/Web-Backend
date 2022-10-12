@@ -28,7 +28,7 @@ switch ($action){
     break;
 
     default:
-    echo "defalt";
+    echo "default";
     // include 'view/home.php';
     }
 ?>
