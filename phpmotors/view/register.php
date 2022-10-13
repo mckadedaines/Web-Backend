@@ -37,7 +37,7 @@
         <input type="text" id="email" name="email"><br><br>
         <label for="password">Password: </label><br>
         <input type="text" id="password" name="password"><br><br>
-        <input type="submit" id="submit" name="submit"><br><br>
+        <input type="submit" value="Submit"><br><br>
        </form>
     </main>
 
