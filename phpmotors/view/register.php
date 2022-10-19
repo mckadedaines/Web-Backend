@@ -28,16 +28,24 @@
     </nav>
 
     <main>
-       <form action="/register.php" class="form">
+        <?php
+        if (isset($message)) {
+             echo $message;
+        }
+        ?>
+
+       <form method="POST" action="/phpmotors/accounts/index.php" class="form">
         <label for="fname">First Name: </label><br>
-        <input type="text" id="fname" name="fname"><br><br>
+        <input type="text" id="fname" name="clientFirstname"><br><br>
         <label for="lname">Last Name: </label><br>
-        <input type="text" id="lname" name="lname"><br><br>
+        <input type="text" id="lname" name="clientLastname"><br><br>
         <label for="email">Email: </label><br>
-        <input type="text" id="email" name="email"><br><br>
+        <input type="text" id="email" name="clientEmail"><br><br>
         <label for="password">Password: </label><br>
-        <input type="text" id="password" name="password"><br><br>
-        <input type="submit" value="Submit"><br><br>
+        <input type="text" id="password" name="clientPassword"><br><br>
+        <input type="submit" value="Submit" id="regButton" value="Register"><br><br>
+        <!-- Add the action name - value pair -->
+        <input type="hidden" name="action" value="success">
        </form>
     </main>
 

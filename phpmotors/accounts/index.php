@@ -3,6 +3,8 @@
 require_once '../library/connections.php';
 // Get the PHP Motors model for use as needed
 require_once '../model/main-model.php';
+// Get the accounts model
+require_once '../model/accounts-model.php';
 
 $classifications = getClassifications();
 
@@ -26,6 +28,10 @@ switch ($action){
     case 'register':
         include '../view/register.php';
     break;
+
+    case 'success':
+        // echo 'You are in the case statement.';
+        break;
 
     default:
     echo "default";
