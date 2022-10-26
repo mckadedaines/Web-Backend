@@ -31,6 +31,32 @@ switch ($action){
 
     case 'success':
         // echo 'You are in the case statement.';
+        if (isset($message)) {
+            //  echo $message;
+            $clientFirstname = filter_input(INPUT_POST, 'clientFirstname');
+            $clientLastname = filter_input(INPUT_POST, 'clientLastname');
+            $clientEmail = filter_input(INPUT_POST, 'clientEmail');
+            $clientPassword = filter_input(INPUT_POST, 'clientPassword');
+        }
+
+        if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)){
+            $message = '<p>Please provide information for all empty form fields.</p>';
+            include '../view/register.php';
+            exit;
+        }
+
+        $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword);
+
+        if($regOutcome === 1){
+            $message = "<p>Thank you for registering $clientFirstname. Please use your email and password to login.</p>";
+            include '../view/register.php';
+            exit;
+        } 
+        else {
+            $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+            include '../view/register.php';
+            exit;
+        }
         break;
 
     default:

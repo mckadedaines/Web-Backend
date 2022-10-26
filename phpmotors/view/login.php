@@ -30,6 +30,12 @@
     <main>
        <h1>Login</h1>
 
+       <?php
+        if (isset($message)) {
+             echo $message;
+        }
+        ?>
+
        <form action="/login.php" class="form">
         <label for="email">Email: </label><br>
         <input type="text" id="email" name="email"><br><br>
