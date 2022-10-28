@@ -31,13 +31,11 @@ switch ($action){
 
     case 'success':
         // echo 'You are in the case statement.';
-        if (isset($message)) {
             //  echo $message;
             $clientFirstname = filter_input(INPUT_POST, 'clientFirstname');
             $clientLastname = filter_input(INPUT_POST, 'clientLastname');
             $clientEmail = filter_input(INPUT_POST, 'clientEmail');
             $clientPassword = filter_input(INPUT_POST, 'clientPassword');
-        }
 
         if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)){
             $message = '<p>Please provide information for all empty form fields.</p>';

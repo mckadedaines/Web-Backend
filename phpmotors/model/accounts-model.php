@@ -5,8 +5,9 @@
 function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword){
     // Create a connection object using the phpmotors connection function
     $db = phpmotorsConnect();
+    // echo $clientFirstname;
     // The SQL statement
-    $sql = 'INESERT INTO clients (clientFirstName, clientLastname, clientEmail, clientPassword)
+    $sql = 'INSERT INTO clients (clientFirstName, clientLastname, clientEmail, clientPassword)
         VALUES (:clientFirstname, :clientLastname, :clientEmail, :clientPassword)';
     // Create the prepared statement using phpmotors connection
     $stmt = $db->prepare($sql);
