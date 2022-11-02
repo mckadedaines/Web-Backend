@@ -22,13 +22,13 @@ function class_outcome($class_name){
     return $rowsChanged;
 }
 
-function vehicle_outcome($car_make, $car_model, $car_description, $car_image, $car_thumbnail, $car_price, $car_stock, $car_color){
+function vehicle_outcome($car_make, $car_model, $car_description, $car_image, $car_thumbnail, $car_price, $car_stock, $car_color, $classificationId){
     // Create a connection object using the phpmotors connection function
     $db = phpmotorsConnect();
     // echo $clientFirstname;
     // The SQL statement
-    $sql = 'INSERT INTO inventory (invMake, invModel, invDescription, invImage, invThumbnail, invPrice, invStock, invColor)
-        VALUES (:car_make, :car_model, :car_description, :car_image, :car_thumbnail, :car_price, :car_stock, :car_color)';
+    $sql = 'INSERT INTO inventory (invMake, invModel, invDescription, invImage, invThumbnail, invPrice, invStock, invColorm, classificationId)
+        VALUES (:car_make, :car_model, :car_description, :car_image, :car_thumbnail, :car_price, :car_stock, :car_color, :classificationId)';
     // Create the prepared statement using phpmotors connection
     $stmt = $db->prepare($sql);
     // The next four lines replace the placeholders in the SQL
@@ -42,6 +42,7 @@ function vehicle_outcome($car_make, $car_model, $car_description, $car_image, $c
     $stmt->bindValue(':car_price', $car_price, PDO::PARAM_STR);
     $stmt->bindValue(':car_stock', $car_stock, PDO::PARAM_STR);
     $stmt->bindValue(':car_color', $car_color, PDO::PARAM_STR);
+    $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_STR);
 
     // Insert the data
     $stmt->execute();

@@ -20,7 +20,13 @@ $navList .= '</ul></nav>';
 
 $class_select = '<select name="car_classification">';
 foreach ($classifications as $classification) {
-    $class_select .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
+    $class_select .= "<option value='$classification[classificationId]'";
+    if(isset($classificationId)){
+        if($classification['classificationId'] === $classificationId){
+            $class_select .= 'selected';
+        }
+    }
+    $class_select .= "> $classification[classificationName]</option>";
    }
    $class_select .= '</select>';
 
@@ -72,14 +78,15 @@ switch ($action){
         $car_price = filter_input(INPUT_POST, 'car_price');
         $car_stock = filter_input(INPUT_POST, 'car_stock');
         $car_color = filter_input(INPUT_POST, 'car_color');
+        $classificationId = filter_input(INPUT_POST, 'classificationId');
 
-        if(empty($car_make) || empty($car_model) || empty($car_description) || empty($car_image) || empty($car_thumbnail) || empty($car_price) || empty($car_stock) || empty($car_color)){
+        if(empty($car_make) || empty($car_model) || empty($car_description) || empty($car_image) || empty($car_thumbnail) || empty($car_price) || empty($car_stock) || empty($car_color) || empty($classificationId)){
             $message = "Sorry please enter all the information<br><br>";
             include '../view/addVehicle.php';
             exit;
         }
 
-        $vehicle_outcome = vehicle_outcome($car_make, $car_model, $car_description, $car_image, $car_thumbnail, $car_price, $car_stock, $car_color);
+        $vehicle_outcome = vehicle_outcome($car_make, $car_model, $car_description, $car_image, $car_thumbnail, $car_price, $car_stock, $car_color, $classificationId);
 
         if($vehicle_outcome === 1){
             $message = "Vehicle added!<br><br>";
