@@ -32,7 +32,8 @@ $action = filter_input(INPUT_GET, 'action');
 switch ($action){
     case 'classification_page':
         include '../view/addClassification.php';
-    break;
+        
+        break;
 
     case 'add_classification':
         $class_name = filter_input(INPUT_POST, 'class_name');
@@ -55,7 +56,42 @@ switch ($action){
             include '../view/addClassification.php';
         }
 
-    break;
+        break;
+
+    case 'addVehicle_page':
+        include '../view/addVehicle.php';
+
+        break;
+
+    case 'add_vehicle':
+        $car_make = filter_input(INPUT_POST, 'car_make');
+        $car_model = filter_input(INPUT_POST, 'car_model');
+        $car_description = filter_input(INPUT_POST, 'car_description');
+        $car_image = filter_input(INPUT_POST, 'car_image');
+        $car_thumbnail = filter_input(INPUT_POST, 'car_thumbnail');
+        $car_price = filter_input(INPUT_POST, 'car_price');
+        $car_stock = filter_input(INPUT_POST, 'car_stock');
+        $car_color = filter_input(INPUT_POST, 'car_color');
+
+        if(empty($car_make) || empty($car_model) || empty($car_description) || empty($car_image) || empty($car_thumbnail) || empty($car_price) || empty($car_stock) || empty($car_color)){
+            $message = "Sorry please enter all the information<br><br>";
+            include '../view/addVehicle.php';
+            exit;
+        }
+
+        $vehicle_outcome = vehicle_outcome($car_make, $car_model, $car_description, $car_image, $car_thumbnail, $car_price, $car_stock, $car_color);
+
+        if($vehicle_outcome === 1){
+            $message = "Vehicle added!<br><br>";
+            header('Location: /phpmotors/vehicles/index.php?action=addVehicle_page');
+        }
+        else {
+            $message = "Please try again later.";
+            include '../view/addVehicle.php';
+        }
+
+        break;
+
 
     default:
     // echo $class_select;

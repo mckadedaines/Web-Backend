@@ -29,7 +29,7 @@
 
     <main>
        <a href="/phpmotors/vehicles/index.php?action=classification_page">Add Classification</a>
-       <a href="">Add Vehicle</a>
+       <a href="/phpmotors/vehicles/index.php?action=addVehicle_page">Add Vehicle</a>
     </main>
 
     <footer>
