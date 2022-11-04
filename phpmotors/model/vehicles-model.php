@@ -27,7 +27,7 @@ function vehicle_outcome($car_make, $car_model, $car_description, $car_image, $c
     $db = phpmotorsConnect();
     // echo $clientFirstname;
     // The SQL statement
-    $sql = 'INSERT INTO inventory (invMake, invModel, invDescription, invImage, invThumbnail, invPrice, invStock, invColorm, classificationId)
+    $sql = 'INSERT INTO inventory (invMake, invModel, invDescription, invImage, invThumbnail, invPrice, invStock, invColor, classificationId)
         VALUES (:car_make, :car_model, :car_description, :car_image, :car_thumbnail, :car_price, :car_stock, :car_color, :classificationId)';
     // Create the prepared statement using phpmotors connection
     $stmt = $db->prepare($sql);

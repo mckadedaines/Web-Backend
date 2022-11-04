@@ -18,7 +18,7 @@ foreach ($classifications as $classification) {
 }
 $navList .= '</ul></nav>';
 
-$class_select = '<select name="car_classification">';
+$class_select = '<select name="classificationId">';
 foreach ($classifications as $classification) {
     $class_select .= "<option value='$classification[classificationId]'";
     if(isset($classificationId)){
@@ -80,7 +80,7 @@ switch ($action){
         $car_color = filter_input(INPUT_POST, 'car_color');
         $classificationId = filter_input(INPUT_POST, 'classificationId');
 
-        if(empty($car_make) || empty($car_model) || empty($car_description) || empty($car_image) || empty($car_thumbnail) || empty($car_price) || empty($car_stock) || empty($car_color) || empty($classificationId)){
+        if(empty($car_make) || empty($car_model) || empty($car_description) || empty($car_image) || empty($car_thumbnail) || empty($car_price) || empty($car_stock) || empty($car_color)){
             $message = "Sorry please enter all the information<br><br>";
             include '../view/addVehicle.php';
             exit;

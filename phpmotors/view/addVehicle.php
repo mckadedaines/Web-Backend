@@ -34,12 +34,11 @@
         }
         ?>
 
+        <br><br><form action="/phpmotors/vehicles/index.php" method="POST">
         <?php
         echo $class_select;
-        ?>
-
-        <br><br><form action="/phpmotors/vehicles/index.php" method="POST">
-            <lable for="car_make">Make:</lable>
+        ?>           
+            <br><br><lable for="car_make">Make:</lable>
             <input type="text" name="car_make"><br><br>
             <label for="car_model">Model:</label>
             <input type="text" name="car_model"><br><br>
