@@ -40,7 +40,7 @@
         <label for="lname">Last Name: </label><br>
         <input type="text" id="lname" name="clientLastname"><br><br>
         <label for="email">Email: </label><br>
-        <input type="text" id="email" name="clientEmail"><br><br>
+        <input type="email" id="email" name="clientEmail"><br><br>
         <label for="password">Password: </label><br>
         <input type="text" id="password" name="clientPassword"><br><br>
         <input type="submit" value="Submit" id="regButton" value="Register"><br><br>

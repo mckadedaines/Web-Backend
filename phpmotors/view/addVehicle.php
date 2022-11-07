@@ -39,21 +39,21 @@
         echo $class_select;
         ?>           
             <br><br><lable for="car_make">Make:</lable>
-            <input type="text" name="car_make"><br><br>
+            <input type="text" name="car_make" required><br><br>
             <label for="car_model">Model:</label>
-            <input type="text" name="car_model"><br><br>
+            <input type="text" name="car_model"  required><br><br>
             <label for="car_description">Description:</label>
-            <input type="text" name="car_description"><br><br>
+            <input type="text" name="car_description" required><br><br>
             <label for="car_image">Image Path:</label>
-            <input type="text" name="car_image" value="/phpmotors/images/no-image.png"><br><br>
+            <input type="text" name="car_image" value="/phpmotors/images/no-image.png" required><br><br>
             <label for="car_thumbnail">Thumbnail Path:</label>
-            <input type="text" name="car_thumbnail" value="/phpmotors/images/no-image.png"><br><br>
+            <input type="text" name="car_thumbnail" value="/phpmotors/images/no-image.png" required><br><br>
             <label for="car_price">Price:</label>
-            <input type="text" name="car_price"><br><br>
+            <input type="number" name="car_price" required><br><br>
             <label for="car_stock"># in stock:</label>
-            <input type="text" name="car_stock"><br><br>
+            <input type="number" name="car_stock" required><br><br>
             <label for="car_color">Color:</label>
-            <input type="text" name="car_color"><br><br>
+            <input type="text" name="car_color" required><br><br>
             <button type="submit">Add Vehicle</button>
             <input type="hidden" name="action" value="add_vehicle">
     </main>
