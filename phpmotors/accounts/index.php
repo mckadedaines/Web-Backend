@@ -5,6 +5,8 @@ require_once '../library/connections.php';
 require_once '../model/main-model.php';
 // Get the accounts model
 require_once '../model/accounts-model.php';
+// Validates the email
+require_once '../library/functions.php';
 
 $classifications = getClassifications();
 
@@ -32,12 +34,14 @@ switch ($action){
     case 'success':
         // echo 'You are in the case statement.';
             //  echo $message;
-            $clientFirstname = filter_input(INPUT_POST, 'clientFirstname');
-            $clientLastname = filter_input(INPUT_POST, 'clientLastname');
-            $clientEmail = filter_input(INPUT_POST, 'clientEmail');
-            $clientPassword = filter_input(INPUT_POST, 'clientPassword');
+            $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
+            $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $clientEmail = checkEmail($clientEmail);
+            $checkPassword = checkPassword($clientPassword);
 
-        if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)){
+        if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)){
             $message = '<p>Please provide information for all empty form fields.</p>';
             include '../view/register.php';
             exit;

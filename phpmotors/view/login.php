@@ -38,9 +38,9 @@
 
        <form action="/login.php" class="form">
         <label for="email">Email: </label><br>
-        <input type="email" id="email" name="email"><br><br>
+        <input type="email" id="email" name="email" required><br><br>
         <label for="password">Password: </label><br>
-        <input type="text" id="password" name="password"><br><br>
+        <input type="password" id="password" name="password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br><br>
         <input type="submit" value="Submit">
        </form>
 
