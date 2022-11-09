@@ -25,15 +25,29 @@ $action = filter_input(INPUT_GET, 'action');
 switch ($action){
     case 'login':
         include '../view/login.php';
-    break;
+        break;
 
     case 'register':
         include '../view/register.php';
-    break;
+        break;
+
+    case 'clientLogin':
+
+        $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
+        $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $clientEmail = checkEmail($clientEmail);
+        $checkPassword = checkPassword($clientPassword);
+
+        if(empty($clientEmail) || empty($clientPassword)){
+            $message = '<p>Please provide information for all empty form fields.</p>';
+            include '../view/login.php';
+            exit;
+        }
+
+        break;
 
     case 'success':
-        // echo 'You are in the case statement.';
-            //  echo $message;
+
             $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
@@ -47,11 +61,14 @@ switch ($action){
             exit;
         }
 
-        $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword);
+        // Hashes the clients password
+        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+
+        $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashedPassword);
 
         if($regOutcome === 1){
             $message = "<p>Thank you for registering $clientFirstname. Please use your email and password to login.</p>";
-            include '../view/register.php';
+            include '../view/login.php';
             exit;
         } 
         else {

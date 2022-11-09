@@ -38,10 +38,12 @@
 
        <form action="/login.php" class="form">
         <label for="email">Email: </label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="email" <?php if(isset($clientEmail)){echo "value=$clientEmail";}?> required><br><br>
         <label for="password">Password: </label><br>
         <input type="password" id="password" name="password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br><br>
+        <span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character.</span><br><br>
         <input type="submit" value="Submit">
+        <input type="hidden" name="action" value="clientLogin">
        </form>
 
        <div id="sign_up">
