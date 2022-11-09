@@ -5,6 +5,8 @@ require_once '../library/connections.php';
 require_once '../model/main-model.php';
 // Get the accounts model
 require_once '../model/vehicles-model.php';
+// Gets the functions
+require_once '../library/functions.php';
 
 $classifications = getClassifications();
 // var_dump($classifications);
@@ -42,7 +44,7 @@ switch ($action){
         break;
 
     case 'add_classification':
-        $class_name = filter_input(INPUT_POST, 'class_name');
+        $class_name = trim(filter_input(INPUT_POST, 'class_name', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
         if(empty($class_name)){
             $message = "Sorry please enter something";
@@ -70,15 +72,15 @@ switch ($action){
         break;
 
     case 'add_vehicle':
-        $car_make = filter_input(INPUT_POST, 'car_make');
-        $car_model = filter_input(INPUT_POST, 'car_model');
-        $car_description = filter_input(INPUT_POST, 'car_description');
-        $car_image = filter_input(INPUT_POST, 'car_image');
-        $car_thumbnail = filter_input(INPUT_POST, 'car_thumbnail');
-        $car_price = filter_input(INPUT_POST, 'car_price');
-        $car_stock = filter_input(INPUT_POST, 'car_stock');
-        $car_color = filter_input(INPUT_POST, 'car_color');
-        $classificationId = filter_input(INPUT_POST, 'classificationId');
+        $car_make = trim(filter_input(INPUT_POST, 'car_make', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $car_model = trim(filter_input(INPUT_POST, 'car_model', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $car_description = trim(filter_input(INPUT_POST, 'car_description', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $car_image = trim(filter_input(INPUT_POST, 'car_image', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $car_thumbnail = trim(filter_input(INPUT_POST, 'car_thumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $car_price = trim(filter_input(INPUT_POST, 'car_price', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_FLAG_ALLOW_FRACTION));
+        $car_stock = trim(filter_input(INPUT_POST, 'car_stock', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $car_color = trim(filter_input(INPUT_POST, 'car_color', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $classificationId = trim(filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
         if(empty($car_make) || empty($car_model) || empty($car_description) || empty($car_image) || empty($car_thumbnail) || empty($car_price) || empty($car_stock) || empty($car_color)){
             $message = "Sorry please enter all the information<br><br>";
