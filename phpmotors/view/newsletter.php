@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/phpmotors/css/normalize.css">
     <link rel="stylesheet" href="/phpmotors/css/mobile.css">
     <link rel="stylesheet" href="/phpmotors/css/large.css">
-    <title>Add Classification</title>
+    <title>Home Page</title>
 </head>
 
 <body>
@@ -28,20 +28,26 @@
     </nav>
 
     <main>
-        <?php
-        if(isset($message)){
-            echo $message;
-        }
-        ?>
-
-       <form action="/phpmotors/vehicles/index.php" method="POST">
-        <label for="class_name">Classification Name: </label>
-        <input id="class_name" type="text" name="class_name" maxlength="30" placeholder="Add Classification">
-        <br><br><span>New classification can't be more then 30 characters long.</span><br><br>
+       <form action="/phpmotors/index.php" method="POST">
+        <label for="news_first">First Name:</label>
+        <input id="news_first" name="news_first" type="text" placeholder="First Name"><br><br>
+        <label for="news_last">Last Name:</label>
+        <input id="news_last" name="news_last" type="text" placeholder="Last Name"><br><br>
+        <label for="news_email">Email:</label>
+        <input id="news_email" name="news_email" type="email" placeholder="Email"><br><br>
         <button type="submit">Submit</button>
-        <input type="hidden" name="action" value="add_classification">
+        <input type="hidden" name="action" value="news">
        </form>
     </main>
+
+    <?php
+        if ($_SESSION['loggedin']){
+                $firstname = $_SESSION['clientData']['clientFirstname'];
+                $lastname = $_SESSION['clientData']['clientLastname'];
+                $email = $_SESSION['clientData']['clientEmail'];
+                echo $firstname, $lastname, $email;
+            }
+            ?>
 
     <footer>
         <hr>

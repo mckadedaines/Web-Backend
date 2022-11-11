@@ -12,13 +12,7 @@ $classifications = getClassifications();
 // var_dump($classifications);
 // exit;
 
-// Build a navigation bar using the $classifications array
-$navList = '<nav id="navbar"><ul>';
-$navList .= "<li><a class='nav' href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
-foreach ($classifications as $classification) {
- $navList .= "<li><a class='nav' href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-}
-$navList .= '</ul></nav>';
+$navList = buildNav($classifications);
 
 $class_select = '<select name="classificationId">';
 foreach ($classifications as $classification) {
@@ -33,9 +27,9 @@ foreach ($classifications as $classification) {
    $class_select .= '</select>';
 
    
-$action = filter_input(INPUT_POST, 'action');
+$action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 if ($action == NULL){
-$action = filter_input(INPUT_GET, 'action');
+$action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 }
 switch ($action){
     case 'classification_page':

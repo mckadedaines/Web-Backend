@@ -38,22 +38,22 @@
         <?php
         echo $class_select;
         ?>           
-            <br><br><lable for="car_make">Make:</lable>
-            <input type="text" name="car_make" <?php if(isset($car_make)){echo "value=$car_make";}?> required><br><br>
+            <br><br><label for="car_make">Make:</label>
+            <input id="car_make" type="text" name="car_make" placeholder="Car Make" <?php if(isset($car_make)){echo "value=$car_make";}?> required><br><br>
             <label for="car_model">Model:</label>
-            <input type="text" name="car_model" <?php if(isset($car_model)){echo "value=$car_model";}?> required><br><br>
+            <input id="car_model" type="text" name="car_model" <?php if(isset($car_model)){echo "value=$car_model";}?> required><br><br>
             <label for="car_description">Description:</label>
-            <input type="text" name="car_description" <?php if(isset($car_description)){echo "value=$car_description";}?> required><br><br>
+            <input id="car_description" type="text" name="car_description" <?php if(isset($car_description)){echo "value=$car_description";}?> required><br><br>
             <label for="car_image">Image Path:</label>
-            <input type="text" name="car_image" value="/phpmotors/images/no-image.png" <?php if(isset($car_image)){echo "value=/phpmotors/images/no-image.png";}?> required><br><br>
+            <input id="car_image" type="text" name="car_image" value="/phpmotors/images/no-image.png" <?php if(isset($car_image)){echo "value=/phpmotors/images/no-image.png";}?> required><br><br>
             <label for="car_thumbnail">Thumbnail Path:</label>
-            <input type="text" name="car_thumbnail" value="/phpmotors/images/no-image.png" <?php if(isset($car_thumbnail)){echo "value=/phpmotors/images/no-image.png";}?> required><br><br>
+            <input id="car_thumbnail" type="text" name="car_thumbnail" value="/phpmotors/images/no-image.png" <?php if(isset($car_thumbnail)){echo "value=/phpmotors/images/no-image.png";}?> required><br><br>
             <label for="car_price">Price:</label>
-            <input type="number" name="car_price" <?php if(isset($car_price)){echo "value=$car_price";}?> required><br><br>
+            <input id="car_price" type="number" name="car_price" <?php if(isset($car_price)){echo "value=$car_price";}?> required><br><br>
             <label for="car_stock"># in stock:</label>
-            <input type="number" name="car_stock" <?php if(isset($car_stock)){echo "value=$car_stock";}?> required><br><br>
+            <input id="car_stock" type="number" name="car_stock" <?php if(isset($car_stock)){echo "value=$car_stock";}?> required><br><br>
             <label for="car_color">Color:</label>
-            <input type="color" name="car_color" <?php if(isset($car_color)){echo "value=$car_color";}?> required><br><br>
+            <input id="car_color" type="text" name="car_color" <?php if(isset($car_color)){echo "value=$car_color";}?> required><br><br>
             <button type="submit">Add Vehicle</button>
             <input type="hidden" name="action" value="add_vehicle">
     </main>
