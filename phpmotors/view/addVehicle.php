@@ -56,6 +56,7 @@
             <input id="car_color" type="text" name="car_color" <?php if(isset($car_color)){echo "value=$car_color";}?> required><br><br>
             <button type="submit">Add Vehicle</button>
             <input type="hidden" name="action" value="add_vehicle">
+        </form>
     </main>
 
     <footer>

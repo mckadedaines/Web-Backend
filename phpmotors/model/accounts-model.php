@@ -48,14 +48,14 @@ function checkExistingEmail($clientEmail){
     $stmt->closeCursor();
 
     if(empty($matchEmail)){
-        echo "Nothing found";
-        // return 0;
-        exit;
+        // echo "Nothing found";
+        return 0;
+        // exit;
     }
     else {
-        echo "Match found";
-        // return 1;
-        exit;
+        // echo "Match found";
+        return 1;
+        // exit;
     }
 }
 ?>
