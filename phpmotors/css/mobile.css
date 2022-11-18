@@ -7,12 +7,16 @@ body {
 header {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
     margin: 8px;
 }
 
 #account {
     text-align: right;
-    margin-top: 25px;
+    /* margin-top: 25px; */
+    grid-area: 2 / 2;
+    /* align-items: center;
+    justify-content: right; */
 }
 
 /* #navbar {
@@ -164,4 +168,12 @@ footer {
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 20px;
+}
+
+.cookieFirstname {
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    grid-area: 1 / 2;
+    margin-top: 25px;
 }

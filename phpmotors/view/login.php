@@ -31,12 +31,12 @@
        <h1>Login</h1>
 
        <?php
-        if (isset($message)) {
-             echo $message;
-        }
+        if (isset($_SESSION['message'])) {
+            echo $_SESSION['message'];
+           }
         ?>
 
-       <form action="/login.php" class="form">
+       <form method="post" action="/login.php" class="form">
         <label for="email">Email: </label><br>
         <input type="email" id="email" name="email" <?php if(isset($clientEmail)){echo "value=$clientEmail";}?> required><br><br>
         <label for="password">Password: </label><br>
