@@ -108,8 +108,11 @@ switch ($action){
         }
         break;
 
+        case'admin':
+            include '../view/admin.php';
+            break;
+
     default:
-    // echo "default";
     include 'view/home.php';
 
     break;
