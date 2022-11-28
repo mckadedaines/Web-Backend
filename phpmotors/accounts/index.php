@@ -35,7 +35,7 @@ switch ($action){
         $checkPassword = checkPassword($clientPassword);
 
         if(empty($clientEmail) || empty($clientPassword)){
-            $message = '<p>Please provide information for all empty form fields.</p>';
+            $_SESSION['message'] = '<p>Please provide information for all empty form fields.</p>';
             include '../view/login.php';
             exit;
         }
@@ -48,7 +48,7 @@ switch ($action){
         // If the hashes don't match create an error
         // and return to the login view
         if(!$hashCheck) {
-        $message = '<p class="notice">Please check your password and try again.</p>';
+        $_SESSION['message'] = '<p class="notice">Please check your password and try again.</p>';
         include '../view/login.php';
         exit;
         }

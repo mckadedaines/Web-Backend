@@ -17,8 +17,8 @@ if ($action == NULL){
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 }
 
-if(isset($_COOKIE['firstname'])){
-    $cookieFirstname = filter_input(INPUT_COOKIE, 'firstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+if(isset($_SESSION['clientFirstname'])){
+    $_SESSION["clientFirstname"] = filter_input(INPUT_COOKIE, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 }
 
 switch ($action){

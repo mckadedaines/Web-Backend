@@ -37,11 +37,11 @@
     <main>
         
             <!-- // echo $_SESSION[clientData][clientFirstname] $_SESSION[clientData][clientLastname]; -->
-            <h1><?php echo $_SESSION['clientData']['clientFirstname'] . ' ' . $_SESSION['clientData']['clientLastname']; ?></h1>
+            <h1>Welcome <?php echo $_SESSION['clientData']['clientFirstname'] . ' ' . $_SESSION['clientData']['clientLastname']; ?></h1>
             <ul>
-                <li>First Name: <?php $_SESSION['clientData']['clientFirstname'] ?></li>
-                <li>Last Name: <?php $_SESSION['clientData']['clientLastname'] ?></li>
-                <li>Email: <?php $_SESSION['clientData']['clientEmail'] ?></li>
+                <li>First Name: <?php echo $_SESSION['clientData']['clientFirstname'] ?></li><br>
+                <li>Last Name: <?php echo $_SESSION['clientData']['clientLastname'] ?></li><br>
+                <li>Email: <?php echo $_SESSION['clientData']['clientEmail'] ?></li><br>
             </ul>
     </main>
 

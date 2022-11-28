@@ -58,7 +58,7 @@ function checkExistingEmail($clientEmail){
         return 1;
         // exit;
     }
-
+}
 // Get client data based on an email address
 function getClient($clientEmail){
     $db = phpmotorsConnect();
@@ -70,5 +70,4 @@ function getClient($clientEmail){
     $stmt->closeCursor();
     return $clientData;
    }
-}
 ?>
