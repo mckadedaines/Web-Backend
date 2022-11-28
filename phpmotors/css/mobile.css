@@ -176,4 +176,6 @@ footer {
     text-align: right;
     grid-area: 1 / 2;
     margin-top: 25px;
+    text-decoration: none;
+    color: black;
 }

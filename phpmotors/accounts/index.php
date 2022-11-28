@@ -112,6 +112,12 @@ switch ($action){
             include '../view/admin.php';
             break;
 
+        case 'logout':
+            session_unset();
+            session_destroy();
+            header('Location: /phpmotors/index.php');
+            break;
+
     default:
     include 'view/home.php';
 
