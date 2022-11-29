@@ -1,11 +1,3 @@
-<?php 
-    // if(!isset($_SESSION['loggedin'])){ 
-    //     header('Location: /phpmotors/index.php'); 
-    //     exit; 
-    // } else {
-    //     include 'view/admin.php';
-    // }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,9 +30,9 @@
         
         <h1>Welcome <?php echo $_SESSION['clientData']['clientFirstname'] . ' ' . $_SESSION['clientData']['clientLastname']; ?></h1>
         <ul>
-            <li>First Name: <?php echo $_SESSION['clientData']['clientFirstname'] ?></li><br>
-            <li>Last Name: <?php echo $_SESSION['clientData']['clientLastname'] ?></li><br>
-            <li>Email: <?php echo $_SESSION['clientData']['clientEmail'] ?></li><br>
+            <li>First Name: <?php echo $_SESSION['clientData']['clientFirstname'] ?></li>
+            <li>Last Name: <?php echo $_SESSION['clientData']['clientLastname'] ?></li>
+            <li>Email: <?php echo $_SESSION['clientData']['clientEmail'] ?></li>
         </ul>
 
         <?php 

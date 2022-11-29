@@ -1,6 +1,7 @@
 <!-- This is the accounts model -->
 
 <!-- This model will handle site registrations -->
+
 <?php
 // This function will grab the clients info and store it into the database
 function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword){
