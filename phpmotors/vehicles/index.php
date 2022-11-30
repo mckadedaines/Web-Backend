@@ -97,10 +97,22 @@ switch ($action){
 
         break;
 
+    case 'getInventoryItems':
+        // Get the classificationId 
+        $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT); 
+        // Fetch the vehicles by classificationId from the DB 
+        $inventoryArray = getInventoryByClassification($classificationId); 
+        // Convert the array to a JSON object and send it back 
+        echo json_encode($inventoryArray); 
+        break;
+
 
     default:
-    // echo $class_select;
+
+    $classificationList = buildClassificationList($classifications);
+
+
     include '../view/vehicle-mang.php';
-    // include 'view/home.php';
+        break;
     }
 ?>
