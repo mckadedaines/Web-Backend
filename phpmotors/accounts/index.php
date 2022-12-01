@@ -119,7 +119,7 @@ switch ($action){
             break;
 
     default:
-    include 'view/home.php';
+    include '../view/home.php';
 
         break;
     }

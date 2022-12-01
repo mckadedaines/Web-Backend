@@ -11,6 +11,7 @@ require_once '../model/vehicles-model.php';
 require_once '../library/functions.php';
 
 $classifications = getClassifications();
+$classificationList = buildClassificationList($classifications);
 // var_dump($classifications);
 // exit;
 
@@ -107,12 +108,17 @@ switch ($action){
         break;
 
 
+    case 'mod':
+        $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+        $invInfo = getInvItemInfo($invId);
+        if(count($invInfo) < 1){
+            $message = 'Sorry, no vehicle information could be found.';
+           }
+        include '../view/vehicle-update.php';
+        exit;
+    break;
+
     default:
-
-    $classificationList = buildClassificationList($classifications);
-
-
     include '../view/vehicle-mang.php';
         break;
     }
-?>
