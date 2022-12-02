@@ -94,6 +94,7 @@ $classifList .= '</select>';
             <input type="text" name="car_color" id="car_color" required <?php if(isset($car_color)){ echo "value=$car_color"; } elseif(isset($invInfo['car_color'])) {echo "value='$invInfo[car_color]'"; }?>><br><br>
             <button type="submit" name="submit" value="Update Vehicle">Add Vehicle</button>
             <input type="hidden" name="action" value="updateVehicle">
+            <input type="hidden" name="invId" value="<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} elseif(isset($invId)){ echo $invId;} ?>">
         </form>
 
         <textarea name="invDescription" id="invDescription" required>

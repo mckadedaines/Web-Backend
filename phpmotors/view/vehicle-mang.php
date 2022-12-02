@@ -3,6 +3,10 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
     header('location: /phpmotors/');
     exit;
 }
+
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,5 +70,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
 
     <script src="../js/inventory.js"></script>
 </body>
+
+<?php unset($_SESSION['message']); ?>
 
 </html>
