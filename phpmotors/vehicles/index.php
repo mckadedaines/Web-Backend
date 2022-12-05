@@ -97,9 +97,10 @@ switch ($action){
             break;
 
         case 'mod':
-            $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+            $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $class_select = buildClassificationList($classifications);
             $invInfo = getInvItemInfo($invId);
-            if(count($invInfo)<1){
+            if(!$invInfo){
              $message = 'Sorry, no vehicle information could be found.';
             }
             include '../view/vehicle-update.php';
@@ -116,7 +117,7 @@ switch ($action){
             $car_price = filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
             $car_stock = filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_NUMBER_INT);
             $car_color = filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_SPECIAL_CHARS);
                 
             if (empty($classificationId) || empty($car_make) || empty($car_model) || empty($car_description) || empty($car_image) || empty($car_thumbnail) || empty($car_price) || empty($car_stock) || empty($car_color)) {
             $message = '<p>Please complete all information for the new item! Double check the classification of the item.</p>';
@@ -138,9 +139,9 @@ switch ($action){
             break;
 
         case 'del':
-            $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+            $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $invInfo = getInvItemInfo($invId);
-            if(count($invInfo) < 1){
+            if($invInfo < 1){
              $message = 'Sorry, no vehicle information could be found.';
             }
             include '../view/vehicle-delete.php';
@@ -148,9 +149,9 @@ switch ($action){
             break;
 
         case 'deleteVehicle':
-            $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+            $invMake = filter_input(INPUT_POST, 'car_make', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $invModel = filter_input(INPUT_POST, 'car_model', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             $deleteResult = deleteVehicle($invId);
             if ($deleteResult) {

@@ -53,7 +53,7 @@ if($_SESSION['clientData']['clientLevel'] < 2){
 
         <br><br><form action="/phpmotors/vehicles/index.php" method="POST">
         <?php
-        // echo $class_select;
+        echo $class_select;
         ?>           
             <br><br><label for="car_make">Make:</label>
             <input type="text" name="car_make" id="car_make" readonly <?php if(isset($invInfo['invMake'])) {echo "value='$invInfo[invMake]'"; }?>><br><br>

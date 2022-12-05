@@ -77,31 +77,30 @@ $classifList .= '</select>';
         echo $class_select;
         ?>           
             <br><br><label for="car_make">Make:</label>
-            <input type="text" name="car_make" id="car_make" placeholder="Car Make" required <?php if(isset($car_make)){ echo "value='$car_make'"; } elseif(isset($invInfo['car_make'])) {echo "value='$invInfo[car_make]'"; }?>><br><br>
+            <input type="text" name="car_make" id="car_make" placeholder="Car Make" required <?php if(isset($car_make)){ echo "value='$car_make'"; } elseif(isset($invInfo['invMake'])) {echo "value='$invInfo[invMake]'"; }?>><br><br>
             <label for="car_model">Model:</label>
-            <input type="text" name="car_model" id="car_model" required <?php if(isset($car_model)){ echo "value='$car_model'"; } elseif(isset($invInfo['car_model'])) {echo "value='$invInfo[car_model]'"; }?>><br><br>
+            <input type="text" name="car_model" id="car_model" required <?php if(isset($car_model)){ echo "value='$car_model'"; } elseif(isset($invInfo['invModel'])) {echo "value='$invInfo[invModel]'"; }?>><br><br>
             <label for="car_description">Description:</label>
-            <input type="text" name="car_description" id="car_description" required <?php if(isset($car_description)){ echo "value='$car_description'"; } elseif(isset($invInfo['car_description'])) {echo "value='$invInfo[car_description]'"; }?>><br><br>
+            <input type="text" name="car_description" id="car_description" required <?php if(isset($car_description)){ echo "value='$car_description'"; } elseif(isset($invInfo['invDescription'])) {echo "value='$invInfo[invDescription]'"; }?>><br><br>
             <label for="car_image">Image Path:</label>
-            <input type="text" name="car_image" id="car_image" required <?php if(isset($car_image)){ echo "value=$car_image"; } elseif(isset($invInfo['car_image'])) {echo "value='$invInfo[car_image]'"; }?>><br><br>
+            <input type="text" name="car_image" id="car_image" required <?php if(isset($car_image)){ echo "value=$car_image"; } elseif(isset($invInfo['invImage'])) {echo "value='$invInfo[invImage]'"; }?>><br><br>
             <label for="car_thumbnail">Thumbnail Path:</label>
-            <input type="text" name="car_thumbnail" id="car_thumbnail" required <?php if(isset($car_thumbnail)){ echo "value=$car_thumbnail"; } elseif(isset($invInfo['car_thumbnail'])) {echo "value='$invInfo[car_thumbnail]'"; }?>><br><br>
+            <input type="text" name="car_thumbnail" id="car_thumbnail" required <?php if(isset($car_thumbnail)){ echo "value=$car_thumbnail"; } elseif(isset($invInfo['invThumbnail'])) {echo "value='$invInfo[invThumbnail]'"; }?>><br><br>
             <label for="car_price">Price:</label>
-            <input type="number" name="car_price" id="car_price" required <?php if(isset($car_price)){ echo "value=$car_price"; } elseif(isset($invInfo['car_price'])) {echo "value='$invInfo[car_price]'"; }?>><br><br>
+            <input type="number" name="car_price" id="car_price" required <?php if(isset($car_price)){ echo "value=$car_price"; } elseif(isset($invInfo['invPrice'])) {echo "value='$invInfo[invPrice]'"; }?>><br><br>
             <label for="car_stock"># in stock:</label>
-            <input type="number" name="car_stock" id="car_stock" required <?php if(isset($car_stock)){ echo "value=$car_stock"; } elseif(isset($invInfo['car_stock'])) {echo "value='$invInfo[car_stock]'"; }?>><br><br>
+            <input type="number" name="car_stock" id="car_stock" required <?php if(isset($car_stock)){ echo "value=$car_stock"; } elseif(isset($invInfo['invStock'])) {echo "value='$invInfo[invStock]'"; }?>><br><br>
             <label for="car_color">Color:</label>
-            <input type="text" name="car_color" id="car_color" required <?php if(isset($car_color)){ echo "value=$car_color"; } elseif(isset($invInfo['car_color'])) {echo "value='$invInfo[car_color]'"; }?>><br><br>
+            <input type="text" name="car_color" id="car_color" required <?php if(isset($car_color)){ echo "value=$car_color"; } elseif(isset($invInfo['invColor'])) {echo "value='$invInfo[invColor]'"; }?>><br><br>
+            <textarea name="invDescription" id="invDescription" required>
+            <?php 
+                if(isset($invDescription)){ echo $invDescription; } elseif(isset($invInfo['invDescription'])) {echo $invInfo['invDescription']; }
+            ?>
+            </textarea><br>
             <button type="submit" name="submit" value="Update Vehicle">Add Vehicle</button>
             <input type="hidden" name="action" value="updateVehicle">
             <input type="hidden" name="invId" value="<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} elseif(isset($invId)){ echo $invId;} ?>">
         </form>
-
-        <textarea name="invDescription" id="invDescription" required>
-            <?php 
-                if(isset($invDescription)){ echo $invDescription; } elseif(isset($invInfo['invDescription'])) {echo $invInfo['invDescription']; }
-            ?>
-        </textarea>
     </main>
 
     <footer>
