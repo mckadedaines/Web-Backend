@@ -64,7 +64,7 @@ function getInventoryByClassification($classificationId){
     $inventory = $stmt->fetchAll(PDO::FETCH_ASSOC); 
     $stmt->closeCursor(); 
     
-    return $inventory;
+    return $inventory; 
    }
 
 // Get vehicle information by invId

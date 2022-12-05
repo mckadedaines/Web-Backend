@@ -53,19 +53,18 @@ if($_SESSION['clientData']['clientLevel'] < 2){
 
         <br><br><form action="/phpmotors/vehicles/index.php" method="POST">
         <?php
-        echo $class_select;
+        // echo $class_select;
         ?>           
             <br><br><label for="car_make">Make:</label>
-            <input type="text" name="car_make" id="car_make" placeholder="Car Make" required <?php if(isset($invInfo['car_make'])) {echo "value='$invInfo[car_make]'"; }?>><br><br>
+            <input type="text" name="car_make" id="car_make" readonly <?php if(isset($invInfo['invMake'])) {echo "value='$invInfo[invMake]'"; }?>><br><br>
             <label for="car_model">Model:</label>
-            <input type="text" name="car_model" id="car_model" required <?php if(isset($invInfo['car_model'])) {echo "value='$invInfo[car_model]'"; }?>><br><br>
+            <input type="text" name="car_model" id="car_model" readonly <?php if(isset($invInfo['invModel'])) {echo "value='$invInfo[invModel]'"; }?>><br><br>
             <label for="car_description">Description:</label>
-            <input type="text" name="car_description" id="car_description" required <?php if(isset($invInfo['car_description'])) {echo "value='$invInfo[car_description]'"; }?>><br><br>
             <textarea name="invDescription" id="invDescription" required>
             <?php 
                 if(isset($invInfo['invDescription'])) {echo $invInfo['invDescription']; }
             ?>
-            </textarea>
+            </textarea><br><br>
             <button type="submit" name="submit" value="Delete Vehicle">Delete Vehicle</button>
             <input type="hidden" name="action" value="deleteVehicle">
             <input type="hidden" name="invId" value="<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} elseif(isset($invId)){ echo $invId;} ?>">

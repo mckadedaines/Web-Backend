@@ -54,24 +54,24 @@ function buildVehiclesDisplay($vehicles)
     return $dv;
 }
 
-function buildClassificationList($classifications)
-{
-    $classifList = '<select name="classificationId" id="classificationId">';
-    $classifList .= "<option>Choose a Car Classification</option>";
-    foreach ($classifications as $classification) {
-        $classifList .= "<option value='$classification[classificationId]'";
-        if (isset($classificationId)) {
-            if ($classification['classificationId'] === $classificationId) {
-                $classifList .= ' selected ';
-            }
-        } elseif (isset($invInfo['classificationId'])) {
-            if ($classification['classificationId'] === $invInfo['classificationId']) {
-                $classifList .= ' selected ';
-            }
-        }
-        $classifList .= ">$classification[classificationName]</option>";
-    }
-    $classifList .= '</select>';
+// function buildClassificationList($classifications)
+// {
+//     $classificationList = '<select name="classificationId" id="classificationId">';
+//     $classificationList .= "<option>Choose a Car Classification</option>";
+//     foreach ($classifications as $classification) {
+//         $classificationList .= "<option value='$classification[classificationId]'";
+//         if (isset($classificationId)) {
+//             if ($classification['classificationId'] === $classificationId) {
+//                 $classificationList .= ' selected ';
+//             }
+//         } elseif (isset($invInfo['classificationId'])) {
+//             if ($classification['classificationId'] === $invInfo['classificationId']) {
+//                 $classificationList .= ' selected ';
+//             }
+//         }
+//         $classificationList .= ">$classification[classificationName]</option>";
+//     }
+//     $classificationList .= '</select>';
 
-    return $classifList;
-}
+//     return $classificationList;
+// }

@@ -36,7 +36,7 @@
 
         <br><br><form action="/phpmotors/vehicles/index.php" method="POST">
         <?php
-        echo $class_select;
+        // echo $class_select;
         ?>           
             <br><br><label for="car_make">Make:</label>
             <input required id="car_make" type="text" name="car_make" placeholder="Car Make" <?php if(isset($car_make)){echo "value=$car_make";}?>><br><br>

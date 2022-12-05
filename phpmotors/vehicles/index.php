@@ -154,12 +154,12 @@ switch ($action){
 
             $deleteResult = deleteVehicle($invId);
             if ($deleteResult) {
-	            $message = "<p class='notice'>Congratulations the, $invMake $invModel was	successfully deleted.</p>";
+	            $message = "<p class='notice'>Congratulations the, $invMake $invModel was successfully deleted.</p>";
 	            $_SESSION['message'] = $message;
 	            header('location: /phpmotors/vehicles/');
 	            exit;
             } else {
-	            $message = "<p class='notice'>Error: $invMake $invModel was not deleted.</p>";
+	            $message = "<p class='notice'>Error: $car_make $car_model was not deleted.</p>";
 	            $_SESSION['message'] = $message;
 	            header('location: /phpmotors/vehicles/');
 	            exit;
