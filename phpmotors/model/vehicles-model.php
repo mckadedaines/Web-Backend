@@ -64,7 +64,7 @@ function getInventoryByClassification($classificationId){
     $inventory = $stmt->fetchAll(PDO::FETCH_ASSOC); 
     $stmt->closeCursor(); 
     
-    return $inventory; 
+    return $inventory;
    }
 
 // Get vehicle information by invId
@@ -85,8 +85,7 @@ function getInvItemInfo($invId){
     $db = phpmotorsConnect();
     // echo $clientFirstname;
     // The SQL statement
-    $sql = 'UPDATE inventory (invMake, invModel, invDescription, invImage, invThumbnail, invPrice, invStock, invColor, classificationId)
-        VALUES (:car_make, :car_model, :car_description, :car_image, :car_thumbnail, :car_price, :car_stock, :car_color, :classificationId)';
+    $sql = 'UPDATE inventory SET car_make = :car_make, car_model = :car_model, car_description = :car_description, car_image = :car_image, car_thumbnail = :car_thumbnail, car_price = :car_price, car_stock = :car_stock, car_color = :car_color, classificationId = :classificationId WHERE invId = :invId';
     // Create the prepared statement using phpmotors connection
     $stmt = $db->prepare($sql);
     // The next four lines replace the placeholders in the SQL
@@ -103,6 +102,29 @@ function getInvItemInfo($invId){
     $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_STR);
     $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
 
+    // Insert the data
+    $stmt->execute();
+    // Ask how many rows changed as a result of our insert
+    $rowsChanged = $stmt->rowCount();
+    // Close the database interaction
+    $stmt->closeCursor();
+    // Return the indication of success (rows changed)
+    return $rowsChanged;
+}
+
+// Deletes a vehicle
+function deleteVehicle($invId){
+    // Create a connection object using the phpmotors connection function
+    $db = phpmotorsConnect();
+    // echo $clientFirstname;
+    // The SQL statement
+    $sql = 'DELETE FROM inventory WHERE invId = :invId';
+    // Create the prepared statement using phpmotors connection
+    $stmt = $db->prepare($sql);
+    // The next four lines replace the placeholders in the SQL
+    // statement with the actual values in the variables
+    // and tells the database the type of data it is
+    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
     // Insert the data
     $stmt->execute();
     // Ask how many rows changed as a result of our insert

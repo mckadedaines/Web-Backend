@@ -16,17 +16,7 @@ $classifications = getClassifications();
 
 $navList = buildNav($classifications);
 
-$class_select = '<select name="classificationId">';
-foreach ($classifications as $classification) {
-    $class_select .= "<option value='$classification[classificationId]'";
-    if(isset($classificationId)){
-        if($classification['classificationId'] === $classificationId){
-            $class_select .= 'selected';
-        }
-    }
-    $class_select .= "> $classification[classificationName]</option>";
-   }
-   $class_select .= '</select>';
+$classificationList = buildClassificationList($classifications);
 
    
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -116,6 +106,66 @@ switch ($action){
             exit;
             break;
 
+        case 'updateVehicle':
+            $classificationId = filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
+            $car_make = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $car_model = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $car_description = filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $car_image = filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $car_thumbnail = filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $car_price = filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+            $car_stock = filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_NUMBER_INT);
+            $car_color = filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+                
+            if (empty($classificationId) || empty($car_make) || empty($car_model) || empty($car_description) || empty($car_image) || empty($car_thumbnail) || empty($car_price) || empty($car_stock) || empty($car_color)) {
+            $message = '<p>Please complete all information for the new item! Double check the classification of the item.</p>';
+            include '../view/new-item.php';
+            exit;        
+            }
+            $updateResult = updateVehicle($classificationId, $car_make, $car_model, $car_description, $car_image, $car_thumbnail, $car_price, $car_stock, $car_color, $invId);
+
+            if ($updateResult) {
+                $message = "<p class='notify'>Congratulations, the $car_make $car_model was successfully updated.</p>";
+                $_SESSION['message'] = $message;
+                header('location: /phpmotors/vehicles/');
+                exit;
+            } else {
+                $message = "<p>Sorry the vehicle did not update.</p>";
+                include '../view/vehicle-update.php';
+                exit;
+            }
+            break;
+
+        case 'del':
+            $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+            $invInfo = getInvItemInfo($invId);
+            if(count($invInfo) < 1){
+             $message = 'Sorry, no vehicle information could be found.';
+            }
+            include '../view/vehicle-delete.php';
+            exit;
+            break;
+
+        case 'deleteVehicle':
+            $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+
+            $deleteResult = deleteVehicle($invId);
+            if ($deleteResult) {
+	            $message = "<p class='notice'>Congratulations the, $invMake $invModel was	successfully deleted.</p>";
+	            $_SESSION['message'] = $message;
+	            header('location: /phpmotors/vehicles/');
+	            exit;
+            } else {
+	            $message = "<p class='notice'>Error: $invMake $invModel was not deleted.</p>";
+	            $_SESSION['message'] = $message;
+	            header('location: /phpmotors/vehicles/');
+	            exit;
+            }
+            break;
+
         case 'classification':
             $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $vehicles = getVehiclesByClassification($classificationName);
@@ -125,7 +175,7 @@ switch ($action){
                 $vehicleDisplay = buildVehiclesDisplay($vehicles);
             }
 
-            echo $vehicleDisplay;
+            // echo $vehicleDisplay;
             exit;
 
             include '../view/classification.php';
@@ -138,4 +188,3 @@ switch ($action){
 
     include '../view/vehicle-mang.php';
     }
-?>

@@ -70,7 +70,6 @@ if (isset($_SESSION['message'])) {
 
     <script src="../js/inventory.js"></script>
 </body>
+</html>
 
 <?php unset($_SESSION['message']); ?>
-
-</html>
