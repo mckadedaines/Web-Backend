@@ -35,9 +35,15 @@
             <li>Email: <?php echo $_SESSION['clientData']['clientEmail'] ?></li>
         </ul>
 
+
         <?php 
-            if(intval($_SESSION['clientData']['clientLevel']) > 1){
-                echo "<h2>Administrative Functions</h2>";
+                        echo "<h2>Administrative Functions</h2>";
+
+            if(intval($_SESSION['clientData']['clientLevel']) >= 1){
+                echo "<p>Use the link below to manage your account.</p>";
+                echo "<p><a href='/phpmotors/accounts/index.php?action=updateAccount'>Account Management</a></p>";
+            }
+                if(intval($_SESSION['clientData']['clientLevel']) > 1){
                 echo "<p>Use the link below to manage inventory.</p>";
                 echo "<p><a href='/phpmotors/vehicles/index.php?action=classification'>Vehicle Management</a></p>";
             }

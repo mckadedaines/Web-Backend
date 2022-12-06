@@ -109,13 +109,83 @@ switch ($action){
         break;
 
         case'admin':
-            include '../view/admin.php';
+            if($_SESSION['loggedin'] == TRUE){
+                include '../view/admin.php';
+                exit;
+            }
+            else{
+                header('Location: /phpmotors/accounts/?action=login');
+                exit;
+            }
             break;
-
         case 'logout':
             session_unset();
             session_destroy();
             header('Location: /phpmotors/index.php');
+            break;
+
+        case 'updateAccount':
+            include '../view/updateAccount.php';
+            break;
+
+        case 'updateClient':
+            $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
+            $clientEmail = checkEmail($clientEmail);
+
+            // Checking for an existing email
+            $existingEmail = checkExistingEmailUpdate($clientEmail);
+
+            if($existingEmail){
+                $message = '<p class="notice">That email address already exists. Please try another one.</p>';
+                include '../view/updateAccount.php';
+                exit;
+            }
+
+            if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)){
+                $message = '<p>Please provide information for all empty form fields.</p>';
+                include '../view/updateAccount.php';
+                exit;
+            }
+
+            $regOutcome = updateClient($clientFirstname, $clientLastname, $clientEmail, $_SESSION['clientData']['clientId']);
+
+            if($regOutcome === 1){
+                $_SESSION['clientData']['clientFirstname'] = $clientFirstname;
+                $_SESSION['clientData']['clientLastname'] = $clientLastname;
+                $_SESSION['clientData']['clientEmail'] = $clientEmail;
+                $_SESSION['message'] = "Changes made successfully.";
+                header('Location: /phpmotors/accounts/?action=admin');
+                exit;
+            } 
+            else {
+                $message = "<p>Sorry $clientFirstname, but the update failed. Please try again.</p>";
+                include '../view/updateAccount.php';
+                exit;
+            }
+            break;
+        
+        case 'updatePassword':
+            $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $checkPassword = checkPassword($clientPassword);
+
+            // Hashes the clients password
+            $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+
+            $regOutcome = updatePassword($hashedPassword, $_SESSION['clientData']['clientId']);
+
+            if($regOutcome === 1){
+                $_SESSION['clientData']['clientPassword'] = $clientPassword;
+                $_SESSION['message'] = "Changes made successfully.";
+                header('Location: /phpmotors/accounts/?action=admin');
+                exit;
+            } 
+            else {
+                $message = "<p>Sorry $clientFirstname, but the update failed. Please try again.</p>";
+                include '../view/updateAccount.php';
+                exit;
+            }
             break;
 
     default:
