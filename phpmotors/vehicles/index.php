@@ -177,15 +177,28 @@ switch ($action){
             }
 
             // echo $vehicleDisplay;
-            exit;
+            // exit;
 
             include '../view/classification.php';
             break;
-        break;
 
+        case 'vehicleView':
+            $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);  
+    
+            $invInfo = getInvItemInfo($invId);
+            
+            if ($invInfo < 1) {
+                $message = 'Sorry, no vehicle information could be found.';
+                include '../view/classification.php';
+                exit;
+            } else {
+                $vehicleDisplay = buildVehicleDisplay($invInfo);
+                include '../view/vehicle-detail.php';
+                exit;
+            }
+            break;
+            
     default:
     $classificationList = buildClassificationList($classifications);
-
-
     include '../view/vehicle-mang.php';
     }

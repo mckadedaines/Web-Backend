@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
 
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+   }
 body {
     font-family: Noto Sans Mono, sans-serif;
 }
@@ -43,12 +51,12 @@ header {
 #navbar {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    /* grid-template-columns: repeat(6, 1fr); */
     column-gap: 10px;
-    text-align: left;
-    margin: 3px;
+    text-align: center;
+    /* margin: 3px; */
     background-color: #3a3a3a; 
-    padding: 10px; 
+    /* padding: 10px; */
 }
 
 .nav {
@@ -121,18 +129,19 @@ header {
 .upgrade_img {
     text-align: center;
     background-color: #4c96d7;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
     border: 1px solid black;
     width: 100px;
     height: 100px;
+    margin: auto;
 }
 
 .img {
     margin-top: 10px;
-    height: 80px;
+    height: 70px;
 }
 
 .img_spacing {
@@ -178,4 +187,23 @@ footer {
     margin-top: 25px;
     text-decoration: none;
     color: black;
+}
+
+#inv-display{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+   
+#inv-display li{
+    margin-bottom: .5em;
+    border: 1px #ccc solid;
+    list-style-type: none;
+    flex: 1 1 auto;
+}
+   
+#inv-display li img {
+    max-width: 100%;
 }

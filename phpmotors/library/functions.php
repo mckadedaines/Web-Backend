@@ -41,37 +41,32 @@ function buildVehiclesDisplay($vehicles)
 {
     $dv = '<ul id="inv-display">';
     foreach ($vehicles as $vehicle) {
-        $price = '$' . number_format($vehicle['invPrice'], 2, '.', ',');
+        $price = number_format($vehicle['invPrice'], 2, '.', ',');
         $dv .= '<li>';
-        $dv .= "<a href='/phpmotors/vehicles/?action=vehicle&invId=$vehicle[invId]'></a>";
+        $dv .= "<a href='/phpmotors/vehicles/?action=vehicleView&invId=$vehicle[invId]'></a>";
         $dv .= "<img src='$vehicle[imgPath]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
         $dv .= '<hr>';
-        $dv .= "<a href='/phpmotors/vehicles/?action=vehicle&invId=$vehicle[invId]'><h2>$vehicle[invMake] $vehicle[invModel]</h2></a>";
-        $dv .= "<span> $price </span>";
+        $dv .= "<a href='/phpmotors/vehicles/?action=vehicleView&invId=$vehicle[invId]'><h2>$vehicle[invMake] $vehicle[invModel]</h2></a>";
+        $dv .= "<span> $ $price </span>";
         $dv .= '</li>';
     }
     $dv .= '</ul>';
     return $dv;
 }
 
-// function buildClassificationList($classifications)
-// {
-//     $classificationList = '<select name="classificationId" id="classificationId">';
-//     $classificationList .= "<option>Choose a Car Classification</option>";
-//     foreach ($classifications as $classification) {
-//         $classificationList .= "<option value='$classification[classificationId]'";
-//         if (isset($classificationId)) {
-//             if ($classification['classificationId'] === $classificationId) {
-//                 $classificationList .= ' selected ';
-//             }
-//         } elseif (isset($invInfo['classificationId'])) {
-//             if ($classification['classificationId'] === $invInfo['classificationId']) {
-//                 $classificationList .= ' selected ';
-//             }
-//         }
-//         $classificationList .= ">$classification[classificationName]</option>";
-//     }
-//     $classificationList .= '</select>';
+function buildVehicleDisplay($vehicle)
+{
+    $vehicle['invPrice'] = number_format($vehicle['invPrice']);
 
-//     return $classificationList;
-// }
+    $dv = "<h1>$vehicle[invMake] $vehicle[invModel]</h1><br>";
+    $dv .= '<div class="vehicle-details">';
+    $dv .= "<div id='vehicle-img'>";
+    $dv .= "<img src='$vehicle[imgPath]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+    $dv .= '</div><br>';
+    $dv .= "<p id='vehicle-price'>Price: $$vehicle[invPrice]</p><br>";
+    $dv .= "<h2 id='vehicle-title'>$vehicle[invMake] $vehicle[invModel] Details</h2><br>";
+    $dv .= "<p id='vehicle-description'>$vehicle[invDescription]</p><br>";
+    $dv .= "<p id='vehicle-color'>Color: $vehicle[invColor]</p><br>";
+    $dv .= '</div>';
+    return $dv;
+}

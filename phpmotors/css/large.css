@@ -47,10 +47,10 @@
     }
 
     .upgrade_img {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 5px;
+        /* padding-bottom: 10px;
         padding-left: 60px;
-        padding-right: 60px;
+        padding-right: 60px; */
     }
 
     #review {
@@ -75,4 +75,29 @@
     .cookieFirstname {
         text-align: right;
     }
+
+    /* For vehicle display in classification view */
+	#inv-display {
+		flex-flow: row wrap;
+		justify-content: center;
+	}
+
+	#inv-display h2{
+		font-size: 1rem;
+	}
+
+	#inv-display li {
+		max-width: 200px;
+		flex: 1 0 auto;
+		text-align: center;
+		height: 250px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+        margin: 15px;
+	}
+      
+	#inv-display div {
+		width: 100%;
+	}
 }
